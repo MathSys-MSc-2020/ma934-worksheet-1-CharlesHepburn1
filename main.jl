@@ -20,11 +20,14 @@ end
 
 # Call a function defined in our custom module Starter.jl
 n = args["group1"]["parameter1"]
-
+alpha = 0.5
+        
 # Set default fonts for all plots
 fnt = Plots.font("DejaVu Sans", 10.0)
 default(titlefont=fnt, guidefont=fnt, tickfont=fnt, legendfont=fnt)
 p = example_plot(n)
 
+p2 = task1(alpha, n)
 # Save the plot as a pdf file
 savefig(p, "testplot.pdf")
+savefig(p2, "task1.pdf")

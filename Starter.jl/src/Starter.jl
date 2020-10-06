@@ -4,7 +4,7 @@ using Plots
 
 # List of functions to be exported
 export example_plot
-
+export task1
 # Definitions of any new types provided
 
 # Function definitions
@@ -13,6 +13,11 @@ export example_plot
 
 This function evaluates Sin(x) at n points in the interval [0, 2π], creates a
     plot and then returns the plot.
+"""
+
+"""
+     task1(alpha,n)
+This function evaluates x^alpha *log(x) at points 2^i for i = 1:n
 """
 function example_plot(n)
     title = "This is an example plot."
@@ -29,5 +34,23 @@ function example_plot(n)
     plot!(x2, y2, label="Underlying function.", color="green", linewidth=2)
     return p
 end
+
+function task1(alpha, n)
+    title = "Task 1 plot"
+    x = [2^0]
+    y = [x[1]^alpha *log(x[1])]
+    for i= 1:n
+        push!(x, 2^i)
+        push!(y, x[i+1]^alpha *log(x[i+1]) )
+    end    
+    p2 = plot(x, y, seriestype=:scatter,
+    title=title, xlabel="x", ylabel="x^ alpha *log(x)", markersize=10, markercolor="red")
+    
+
+    return p2
+end
+    
+
+
 # End the module definition
 end
